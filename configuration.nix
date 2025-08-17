@@ -40,7 +40,7 @@ nix.gc = {
 #autoupdate
 system.autoUpgrade = {
   enable = true;
-  flake = "$HOME/flake"; 
+  flake = "/home/simon/flake"; 
   flags = [
     "--update-input"
     "nixpkgs"
@@ -54,9 +54,9 @@ nix.settings.auto-optimise-store = true;
 #aliassen
 environment.shellAliases ={
 ls = "ls -la";
-#flakeupd ="nix flake update /flake"; 
- sysupgr = "sudo nixos-rebuild --flake $HOME/flake boot ";
- sysswitch = "sudo nixos-rebuild --flake $HOME/flake  switch";  
+flakeupd ="nix flake update /home/simon/flake"; 
+ sysupgr = "sudo nixos-rebuild --flake home/simon/flake boot";
+ sysswitch = "sudo nixos-rebuild --flake home/simon/flake switch";  
   
 sysconfig = "sudo nano $HOME/flake/configuration.nix";
  sysclean  = "sudo nix-collect-garbage -d";
