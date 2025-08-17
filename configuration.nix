@@ -40,13 +40,13 @@ nix.gc = {
 #autoupdate
 system.autoUpgrade = {
   enable = true;
-  flake = "/flake-vm"; 
+  flake = "$HOME/flake"; 
   flags = [
     "--update-input"
     "nixpkgs"
     "-L" # print build logs
   ];
-  dates = "19:00";
+  dates = "14:00";
   randomizedDelaySec = "45min";
 };
 #auto optimise Nix store
@@ -55,10 +55,10 @@ nix.settings.auto-optimise-store = true;
 environment.shellAliases ={
 ls = "ls -la";
 #flakeupd ="nix flake update /flake"; 
- sysupgr = "sudo nixos-rebuild  boot ";
- sysswitch = "sudo nixos-rebuild switch";  
+ sysupgr = "sudo nixos-rebuild --flake $HOME/flake boot ";
+ sysswitch = "sudo nixos-rebuild --flake $HOME/flake  switch";  
   
-sysconfig = "sudo nano /etc/nixos/configuration.nix";
+sysconfig = "sudo nano $HOME/flake/configuration.nix";
  sysclean  = "sudo nix-collect-garbage -d";
  listgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
 
