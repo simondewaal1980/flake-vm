@@ -54,9 +54,9 @@ nix.settings.auto-optimise-store = true;
 #aliassen
 environment.shellAliases ={
 ls = "ls -la";
-flakeupd ="nix flake update /home/simon/flake"; 
- sysupgr = "sudo nixos-rebuild --flake home/simon/flake boot";
- sysswitch = "sudo nixos-rebuild --flake home/simon/flake switch";  
+flakeupd ="nix flake update home/simon/flake/"; 
+ sysupgr = "sudo nixos-rebuild --flake ~/flake boot";
+ sysswitch =" exec  ~./sysswitch.sh ";  
   
 sysconfig = "sudo nano $HOME/flake/configuration.nix";
  sysclean  = "sudo nix-collect-garbage -d";
@@ -255,4 +255,3 @@ programs.bash.interactiveShellInit ="fastfetch" ;
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
