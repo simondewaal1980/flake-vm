@@ -30,6 +30,12 @@ fileSystems = {
 #Zram swap
 zramSwap.enable = true;
 
+#XRDP
+services.xrdp.enable = true;
+services.xserver.desktopManager.xfce.enable = true;
+
+#services.xrdp.defaultWindowManager = "xfce"; 
+
 
 #Clean
 nix.gc = {
@@ -54,7 +60,7 @@ nix.settings.auto-optimise-store = true;
 #aliassen
 environment.shellAliases ={
 ls = "ls -la";
-flakeupd ="nix flake update home/simon/flake/"; 
+flakeupd ="nix flake update home/simon/flake/#."; 
  sysupgr = "sudo nixos-rebuild --flake ~/flake boot";
  sysswitch =" exec  ~./sysswitch.sh ";  
   
@@ -187,6 +193,8 @@ cudaPackages.cudatoolkit
   dotnet-aspnetcore
   vscode-fhs
   github-desktop 
+davinci-resolve
+
  ];
 
 fonts.packages = with pkgs; [
