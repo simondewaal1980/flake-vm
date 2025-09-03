@@ -70,8 +70,13 @@ sysconfig = "sudo nano $HOME/flake/configuration.nix";
 
 };
 #CUDA cache 
-nix.settings.substituters = [ "https://cuda-maintainers.cachix.org" ];
-
+ nix.settings.substituters = [
+    "https://nix-community.cachix.org"
+  ];
+  nix.settings.trusted-public-keys = [
+    # Compare to the key published at https://nix-community.org/cache
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
