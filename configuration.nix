@@ -188,7 +188,7 @@ cudaPackages.cudatoolkit
     SDL2
     sdl3
     dotnetCorePackages.sdk_9_0_1xx-bin   
-   python312Full
+   #python312Full
    via
    vlc
   virt-manager
