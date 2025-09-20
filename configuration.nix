@@ -169,7 +169,9 @@ virtualisation.libvirtd.enable = true;
 #Virtualbox
  virtualisation.virtualbox.host.enable = true;
    users.extraGroups.vboxusers.members = [ "simon" ];
-  # List packages installed in system profile.
+     virtualisation.virtualbox.host.enableExtensionPack = true;
+  
+# List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
    _86Box-with-roms  
