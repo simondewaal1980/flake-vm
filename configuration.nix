@@ -166,6 +166,9 @@ enable = true;
 #virtmanager
 virtualisation.libvirtd.enable = true;
 
+#Virtualbox
+ virtualisation.virtualbox.host.enable = true;
+   users.extraGroups.vboxusers.members = [ "simon" ];
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
@@ -183,6 +186,7 @@ cudaPackages.cudatoolkit
     nvidia-docker
     docker    
     fuse
+    xhost
     appimage-run
     SDL
     SDL2
