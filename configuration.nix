@@ -143,7 +143,7 @@ programs.steam.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.simon = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "docker" "podman" "libvirtd"  ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "docker" "podman" "libvirtd" "vboxusers"  ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
        tree
        spotify  
@@ -168,9 +168,11 @@ virtualisation.libvirtd.enable = true;
 
 #Virtualbox
  virtualisation.virtualbox.host.enable = true;
-   users.extraGroups.vboxusers.members = [ "simon" ];
+   #users.extraGroups.vboxusers.members = [ "simon" ];
      virtualisation.virtualbox.host.enableExtensionPack = true;
-  
+ virtualisation.virtualbox.host.enableKvm = true;
+virtualisation.virtualbox.host.addNetworkInterface =false;
+ 
 # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
@@ -206,6 +208,8 @@ cudaPackages.cudatoolkit
   vscode-fhs
   github-desktop 
 davinci-resolve
+#virtualbox
+#linuxKernel.packages.linux_6_12.virtualbox
 
  ];
 
