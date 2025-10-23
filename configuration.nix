@@ -11,9 +11,11 @@
     ];
    nix.settings = {
 experimental-features = [ "nix-command" "flakes" ];
+
 };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
+ # nixpkgs.config.allowUnsupportedSystem = true;
 #Disable powermanagment
 systemd.sleep.extraConfig = ''
   AllowSuspend=no
@@ -161,17 +163,17 @@ virtualisation.podman = {
 virtualisation.docker = {
 enable = true;
 };
-   programs.firefox.enable = true;
+   #programs.firefox.enable = true;
 
 #virtmanager
 virtualisation.libvirtd.enable = true;
 
 #Virtualbox
  virtualisation.virtualbox.host.enable = true;
-   #users.extraGroups.vboxusers.members = [ "simon" ];
-     virtualisation.virtualbox.host.enableExtensionPack = true;
- virtualisation.virtualbox.host.enableKvm = true;
-virtualisation.virtualbox.host.addNetworkInterface =false;
+ users.extraGroups.vboxusers.members = [ "simon" ];
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+# virtualisation.virtualbox.host.enableKvm = true;
+#virtualisation.virtualbox.host.addNetworkInterface =false;
  
 # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -190,7 +192,7 @@ cudaPackages.cudatoolkit
     nvidia-docker
     docker    
     fuse
-    xhost
+
     appimage-run
     SDL
     SDL2
